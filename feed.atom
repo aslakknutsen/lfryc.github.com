@@ -2,13 +2,83 @@
 <feed xml:lang='en-US' xmlns='http://www.w3.org/2005/Atom'>
   <id>http://lukas.fryc.eu/</id>
   <title>Lukas Fryc</title>
-  <updated>2013-01-16T00:09:41+01:00</updated>
+  <updated>2013-01-24T08:58:46+01:00</updated>
   <link href='http://lukas.fryc.eu/feed.atom' rel='self' type='application/atom+xml' />
   <link href='http://lukas.fryc.eu/' rel='alternate' type='text/html' />
   <entry>
+    <id>http://lukas.fryc.eu/blog/2013/01/richfaces-focus-in-richfaces-4-3.html</id>
+    <title>New in RichFaces 4.3: Focus</title>
+    <updated>2013-01-24T08:58:46+01:00</updated>
+    <published>2013-01-24T00:00:00Z</published>
+    <link href='http://lukas.fryc.eu/blog/2013/01/richfaces-focus-in-richfaces-4-3.html' rel='alternate' type='text/html' />
+    <category term='richfaces'></category>
+    <category term='richfaces-component'></category>
+    <summary>
+      The &lt;rich:focus /&gt; component allows you to focus on a form input once the user requests the JSF page update (either via a full-page load or an AJAX partial update). The &lt;rich:focus /&gt; component will make sure that the focused component is the best choice for the user based on following criteria:
+      
+      	validation results
+      	tabindex settings
+      	position in the page
+      	which component was selected prior to the request
+      
+      Contributed by Community
+      The &lt;rich:focus /&gt; is another sample of a RichFaces Community contribution &#8211; the component was initially proposed and implemented by Bernard Labno and he contributed it to the RichFaces Sandbox. Now you can use its...
+    </summary>
+    <content type='html'>
+      &lt;p&gt;The &lt;code&gt;&amp;lt;rich:focus /&amp;gt;&lt;/code&gt; component allows you to focus on a form input once the user requests the &lt;span class=&quot;caps&quot;&gt;JSF&lt;/span&gt; page update (either via a full-page load or an &lt;span class=&quot;caps&quot;&gt;AJAX&lt;/span&gt; partial update). The &lt;code&gt;&amp;lt;rich:focus /&amp;gt;&lt;/code&gt; component will make sure that the focused component is the best choice for the user based on following criteria:&lt;/p&gt;
+&lt;ul&gt;
+	&lt;li&gt;validation results&lt;/li&gt;
+	&lt;li&gt;&lt;code&gt;tabindex&lt;/code&gt; settings&lt;/li&gt;
+	&lt;li&gt;position in the page&lt;/li&gt;
+	&lt;li&gt;which component was selected prior to the request&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5&gt;Contributed by Community&lt;/h5&gt;
+&lt;p&gt;The &lt;code&gt;&amp;lt;rich:focus /&amp;gt;&lt;/code&gt; is another sample of a RichFaces Community contribution &amp;#8211; the component was &lt;a href=&quot;https://community.jboss.org/thread/147735&quot;&gt;initially proposed&lt;/a&gt; and implemented by &lt;a href=&quot;https://github.com/blabno&quot;&gt;Bernard Labno&lt;/a&gt; and he contributed it to the &lt;a href=&quot;https://github.com/richfaces/sandbox&quot;&gt;RichFaces Sandbox&lt;/a&gt;. Now you can use its improved version in the core component suite with all of the advantages which that bears: stability and patches from the RichFaces team.&lt;/p&gt;
+&lt;p&gt;The component has several use cases, so let&amp;#8217;s go through them one by one:&lt;/p&gt;
+&lt;h3&gt;Default Behavior&lt;/h3&gt;
+&lt;h4&gt;Focus on Render&lt;/h4&gt;
+&lt;p&gt;The default behavior is that the chosen component is focused each time an initial request or a postback is finished.&lt;/p&gt;
+&lt;h4&gt;Validation Awareness&lt;/h4&gt;
+&lt;p&gt;The &lt;code&gt;&amp;lt;rich:focus /&amp;gt;&lt;/code&gt; component chooses the right input based on validation results. The input component which has failed validation will be focused first.&lt;/p&gt;
+&lt;p&gt;The use case is illustrated on following example:&lt;/p&gt;
+&lt;h5&gt;Example of Validation-Aware Focusing&lt;/h5&gt;
+&lt;pre class=&quot;prettify&quot;&gt;&lt;code class=&quot;prettify&quot;&gt;&amp;lt;h:form&amp;gt;&amp;#x000A;    &amp;lt;rich:focus /&amp;gt;&lt;/code&gt;&amp;#x000A;&amp;#x000A;&lt;code class=&quot;prettify&quot;&gt;    &amp;lt;h:panelGrid columns=&quot;1&quot;&amp;gt;&amp;#x000A;        &amp;lt;h:inputText label=&quot;Name&quot; id=&quot;name&quot; value=&quot;#{userBean.name}&quot;&amp;gt;&amp;#x000A;            &amp;lt;f:validateRequired /&amp;gt;&amp;#x000A;            &amp;lt;f:validateLength minimum=&quot;3&quot; /&amp;gt;&amp;#x000A;        &amp;lt;/h:inputText&amp;gt;&lt;/code&gt;&amp;#x000A;&amp;#x000A;&lt;code class=&quot;prettify&quot;&gt;        &amp;lt;h:inputText label=&quot;Job&quot; id=&quot;job&quot; value=&quot;#{userBean.job}&quot;&amp;gt;&amp;#x000A;            &amp;lt;f:validateRequired /&amp;gt;&amp;#x000A;            &amp;lt;f:validateLength minimum=&quot;3&quot; maximum=&quot;50&quot; /&amp;gt;&amp;#x000A;        &amp;lt;/h:inputText&amp;gt;&amp;#x000A;        ...&amp;#x000A;    &amp;lt;/h:panelGrid&amp;gt;&lt;/code&gt;&amp;#x000A;     &amp;#x000A;&lt;code class=&quot;prettify&quot;&gt;    &amp;lt;a4j:commandButton value=&quot;Ajax Validate&quot; /&amp;gt;&amp;#x000A;&amp;lt;/h:form&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&quot;../../../images/blog/2013-01-17-richfaces-focus-in-richfaces-4-3/validation-aware.png&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;You can see a working sample with full source-code in &lt;a href=&quot;http://showcase.richfaces.org/richfaces/component-sample.jsf?demo=focus&amp;amp;sample=focus&amp;amp;skin=blueSky&quot;&gt;this basic focus demo&lt;/a&gt;.&lt;/p&gt;
+&lt;h4&gt;Position in the Page&lt;/h4&gt;
+&lt;p&gt;When all components are valid, the first input on the page will be focused after the initial request.&lt;/p&gt;
+&lt;p&gt;When updating the page after postback, the first input in the submitted form will be focused.&lt;/p&gt;
+&lt;div class=&quot;alert alert-info&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt; The position in the page is given by placement in the &lt;span class=&quot;caps&quot;&gt;DOM&lt;/span&gt;.&lt;/div&gt;
+&lt;h4&gt;Tabindex&lt;/h4&gt;
+&lt;p&gt;The focusing priority given by the placement in the &lt;span class=&quot;caps&quot;&gt;DOM&lt;/span&gt; can be overridden by setting a component&amp;#8217;s &lt;code&gt;tabindex&lt;/code&gt; attribute with a value greater than 0.&lt;/p&gt;
+&lt;h3&gt;Keeping Focus on Focused Component&lt;/h3&gt;
+&lt;p&gt;Another use case of the focus component is keeping one component focused during requests.&lt;/p&gt;
+&lt;p&gt;No matter whether you do a full-page update or an &lt;span class=&quot;caps&quot;&gt;AJAX&lt;/span&gt; request, the &lt;span class=&quot;caps&quot;&gt;DOM&lt;/span&gt; which contains the focused component might be replaced. In this case, the focus will be lost.&lt;/p&gt;
+&lt;h5&gt;Example&lt;/h5&gt;
+&lt;p&gt;When you have full-text search input, the user should be allowed to correct his input if his previous search failed.&lt;/p&gt;
+&lt;p&gt;In such cases, the user shouldn&amp;#8217;t be forced to focus the input box himself. You can focus the input for him:&lt;/p&gt;
+&lt;pre class=&quot;prettify&quot;&gt;&lt;code class=&quot;prettify&quot;&gt;&amp;lt;h:form&amp;gt;&amp;#x000A;	&amp;lt;rich:focus preserve=&quot;true&quot; /&amp;gt;&lt;/code&gt;&amp;#x000A;&amp;#x000A;&lt;code class=&quot;prettify&quot;&gt;	&amp;lt;h:inputText id=&quot;query&quot; value=&quot;#{query}&quot; /&amp;gt;&amp;#x000A;	&amp;lt;h:commandButton value=&quot;Search&quot; /&amp;gt;&amp;#x000A;	&amp;lt;rich:list id=&quot;searchResults&quot;&amp;gt;&amp;#x000A;&amp;lt;/h:form&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You can see a &lt;a href=&quot;http://showcase.richfaces.org/richfaces/component-sample.jsf?demo=focus&amp;amp;sample=focusPreserve&amp;amp;skin=blueSky&quot;&gt;sample for this use case in RichFaces Showcase&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;Delayed Focus&lt;/h3&gt;
+&lt;p&gt;Sometimes it is too early to focus on a component after the &lt;span class=&quot;caps&quot;&gt;JSF&lt;/span&gt; request.&lt;/p&gt;
+&lt;p&gt;For example the component isn&amp;#8217;t displayed yet, thus it can&amp;#8217;t be focused. The sample shows usage of the focus feature in a popup panel.&lt;/p&gt;
+&lt;p&gt;In this case, you can give the &lt;code&gt;&amp;lt;rich:focus /&amp;gt;&lt;/code&gt; an ID and call its &lt;code&gt;applyFocus()&lt;/code&gt; JavaScript method:&lt;/p&gt;
+&lt;pre class=&quot;prettify&quot;&gt;&lt;code class=&quot;prettify&quot;&gt;&amp;lt;rich:popupPanel onshow=&quot;#{rich:component('focus')}.applyFocus();&quot;&amp;gt;&amp;#x000A;	&amp;lt;rich:focus id=&quot;focus&quot; /&amp;gt;&amp;#x000A;&amp;lt;/rich:popupPanel&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Be sure to check out the sample: &lt;a href=&quot;http://showcase.richfaces.org/richfaces/component-sample.jsf?demo=focus&amp;amp;sample=focusDelayed&amp;amp;skin=blueSky&quot;&gt;delaying the popup panel&amp;#8217;s form focus&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;Server-side Focus Management&lt;/h3&gt;
+&lt;p&gt;When all of the methods illustrated above do not fit your needs, then you have a last option: you can leverage the &lt;code&gt;FocusManager&lt;/code&gt; &lt;span class=&quot;caps&quot;&gt;API&lt;/span&gt;.&lt;/p&gt;
+&lt;pre class=&quot;prettify&quot;&gt;&lt;code class=&quot;prettify&quot;&gt;FocusManager focusManager = ServiceTracker.getService(FocusManager.class);&amp;#x000A;focusManager.focus(&quot;inputComponentId&quot;);&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The &lt;code&gt;FocusManager&lt;/code&gt; will enforce the focus of the given component and this enforcement will take priority over any other &lt;code&gt;&amp;lt;rich:focus /&amp;gt;&lt;/code&gt; usage.&lt;/p&gt;
+&lt;p&gt;The sample: &lt;a href=&quot;http://showcase.richfaces.org/richfaces/component-sample.jsf?demo=focus&amp;amp;sample=focusManager&amp;amp;skin=blueSky&quot;&gt;enforcing a focus can be found here&lt;/a&gt;.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;Don&amp;#8217;t forget to check out the &lt;a href=&quot;http://docs.jboss.org/richfaces/4.3.X/4.3.0.CR1/Component_Reference/en-US/html/chap-Component_Reference-Functionality_extension.html#sect-Component_Reference-Functionality_extension-richfocus&quot;&gt;component reference&lt;/a&gt; and &lt;a href=&quot;http://docs.jboss.org/richfaces/4.3.X/4.3.0.CR1/vdldoc/rich/focus.html&quot;&gt;&lt;span class=&quot;caps&quot;&gt;VDL&lt;/span&gt; documentation&lt;/a&gt; for &lt;code&gt;&amp;lt;rich:focus /&amp;gt;&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;I hope you will enjoy this component and that it will cover all of your use cases!&lt;/p&gt;
+    </content>
+  </entry>
+  <entry>
     <id>http://lukas.fryc.eu/blog/2013/01/arquillian-graphene-2.html</id>
     <title>Graphene 2.0.0.Alpha3 Released</title>
-    <updated>2013-01-16T00:09:41+01:00</updated>
+    <updated>2013-01-24T08:58:46+01:00</updated>
     <published>2013-01-15T00:00:00Z</published>
     <link href='http://lukas.fryc.eu/blog/2013/01/arquillian-graphene-2.html' rel='alternate' type='text/html' />
     <category term='arquillian'></category>
@@ -119,7 +189,7 @@
   <entry>
     <id>http://lukas.fryc.eu/blog/2013/01/arquillian-extension-warp-1.html</id>
     <title>Warp 1.0.0.Alpha2 Released</title>
-    <updated>2013-01-16T00:09:35+01:00</updated>
+    <updated>2013-01-24T08:58:46+01:00</updated>
     <published>2013-01-15T00:00:00Z</published>
     <link href='http://lukas.fryc.eu/blog/2013/01/arquillian-extension-warp-1.html' rel='alternate' type='text/html' />
     <category term='arquillian'></category>
@@ -271,7 +341,7 @@ This will intercept the first request coming from the client and ignore the rest
   <entry>
     <id>http://lukas.fryc.eu/blog/2012/09/arquillian-graphene-2.html</id>
     <title>Graphene 2.0.0.Alpha2 Released</title>
-    <updated>2013-01-16T00:09:30+01:00</updated>
+    <updated>2013-01-24T08:58:46+01:00</updated>
     <published>2012-09-17T00:00:00Z</published>
     <link href='http://lukas.fryc.eu/blog/2012/09/arquillian-graphene-2.html' rel='alternate' type='text/html' />
     <category term='arquillian'></category>
@@ -330,7 +400,7 @@ This will intercept the first request coming from the client and ignore the rest
   <entry>
     <id>http://lukas.fryc.eu/blog/2012/08/incremental-build-with-richfaces-cdk.html</id>
     <title>Incremental build with RichFaces CDK</title>
-    <updated>2013-01-15T23:53:08+01:00</updated>
+    <updated>2013-01-24T08:58:46+01:00</updated>
     <published>2012-08-30T00:00:00Z</published>
     <link href='http://lukas.fryc.eu/blog/2012/08/incremental-build-with-richfaces-cdk.html' rel='alternate' type='text/html' />
     <category term='richfaces'></category>
@@ -371,7 +441,7 @@ This will intercept the first request coming from the client and ignore the rest
   <entry>
     <id>http://lukas.fryc.eu/blog/2012/08/jsf-meets-skinning-awesomeness-of-less.html</id>
     <title>JSF meets Skinning Awesomeness of LESS</title>
-    <updated>2013-01-15T23:53:08+01:00</updated>
+    <updated>2013-01-24T08:58:46+01:00</updated>
     <published>2012-08-03T00:00:00Z</published>
     <link href='http://lukas.fryc.eu/blog/2012/08/jsf-meets-skinning-awesomeness-of-less.html' rel='alternate' type='text/html' />
     <category term='richfaces'></category>
@@ -412,7 +482,7 @@ That&#8217;s exactly where technologies like LESS and SASS come in. They are pro
   <entry>
     <id>http://lukas.fryc.eu/blog/2012/05/arquillian-extension-warp-1.html</id>
     <title>Warp 1.0.0.Alpha1 Released</title>
-    <updated>2013-01-16T00:09:25+01:00</updated>
+    <updated>2013-01-24T08:58:46+01:00</updated>
     <published>2012-05-27T00:00:00Z</published>
     <link href='http://lukas.fryc.eu/blog/2012/05/arquillian-extension-warp-1.html' rel='alternate' type='text/html' />
     <category term='arquillian'></category>
@@ -510,7 +580,7 @@ That&#8217;s exactly where technologies like LESS and SASS come in. They are pro
   <entry>
     <id>http://lukas.fryc.eu/blog/2012/05/in-foothills-of-alps-wrap-up-of-confess.html</id>
     <title>In the foothills of Alps - wrap-up of ConFess 2012</title>
-    <updated>2013-01-15T23:53:08+01:00</updated>
+    <updated>2013-01-24T08:58:46+01:00</updated>
     <published>2012-05-14T00:00:00Z</published>
     <link href='http://lukas.fryc.eu/blog/2012/05/in-foothills-of-alps-wrap-up-of-confess.html' rel='alternate' type='text/html' />
     <category term='event'></category>
@@ -541,7 +611,7 @@ That&#8217;s exactly where technologies like LESS and SASS come in. They are pro
   <entry>
     <id>http://lukas.fryc.eu/blog/2012/04/graphene-100final-released.html</id>
     <title>Graphene 1.0.0.Final Released</title>
-    <updated>2013-01-15T23:53:08+01:00</updated>
+    <updated>2013-01-24T08:58:46+01:00</updated>
     <published>2012-04-11T00:00:00Z</published>
     <link href='http://lukas.fryc.eu/blog/2012/04/graphene-100final-released.html' rel='alternate' type='text/html' />
     <category term='arquillian'></category>
@@ -577,7 +647,7 @@ That&#8217;s exactly where technologies like LESS and SASS come in. They are pro
   <entry>
     <id>http://lukas.fryc.eu/blog/2012/04/full-fledged-debugging-for-mobile.html</id>
     <title>Full-Fledged Debugging for Mobile Browsers</title>
-    <updated>2013-01-15T23:53:08+01:00</updated>
+    <updated>2013-01-24T08:58:46+01:00</updated>
     <published>2012-04-04T00:00:00Z</published>
     <link href='http://lukas.fryc.eu/blog/2012/04/full-fledged-debugging-for-mobile.html' rel='alternate' type='text/html' />
     <category term='debugging'></category>
@@ -612,7 +682,7 @@ WebKit Web...
   <entry>
     <id>http://lukas.fryc.eu/blog/2012/03/incredibly-fast-jsf-component.html</id>
     <title>Incredibly Fast JSF Component Development</title>
-    <updated>2013-01-15T23:53:08+01:00</updated>
+    <updated>2013-01-24T08:58:46+01:00</updated>
     <published>2012-03-29T00:00:00Z</published>
     <link href='http://lukas.fryc.eu/blog/2012/03/incredibly-fast-jsf-component.html' rel='alternate' type='text/html' />
     <category term='richfaces'></category>
@@ -658,7 +728,7 @@ WebKit Web...
   <entry>
     <id>http://lukas.fryc.eu/blog/2012/03/goodbye-ajocado-welcome-graphene.html</id>
     <title>Goodbye, Ajocado - Welcome, Graphene!</title>
-    <updated>2013-01-15T23:53:08+01:00</updated>
+    <updated>2013-01-24T08:58:46+01:00</updated>
     <published>2012-03-19T00:00:00Z</published>
     <link href='http://lukas.fryc.eu/blog/2012/03/goodbye-ajocado-welcome-graphene.html' rel='alternate' type='text/html' />
     <category term='arquillian'></category>
@@ -702,7 +772,7 @@ The project is like a&amp;nbsp;diamond&amp;nbsp;- very strong in its basis:&lt;/
   <entry>
     <id>http://lukas.fryc.eu/blog/2012/03/great-times-at-jdc-2012-egypt.html</id>
     <title>Great times at JDC 2012, Egypt</title>
-    <updated>2013-01-15T23:53:08+01:00</updated>
+    <updated>2013-01-24T08:58:46+01:00</updated>
     <published>2012-03-13T00:00:00Z</published>
     <link href='http://lukas.fryc.eu/blog/2012/03/great-times-at-jdc-2012-egypt.html' rel='alternate' type='text/html' />
     <category term='wrap-up'></category>
@@ -746,7 +816,7 @@ After the conference closing, the good beer and the nice mood over the discussio
   <entry>
     <id>http://lukas.fryc.eu/blog/2012/03/speaking-at-jdc12-in-cairo-egypt.html</id>
     <title>Speaking at JDC'12 in Cairo, Egypt</title>
-    <updated>2013-01-15T23:53:08+01:00</updated>
+    <updated>2013-01-24T08:58:46+01:00</updated>
     <published>2012-03-05T00:00:00Z</published>
     <link href='http://lukas.fryc.eu/blog/2012/03/speaking-at-jdc12-in-cairo-egypt.html' rel='alternate' type='text/html' />
     <category term='event'></category>
@@ -778,7 +848,7 @@ After the conference closing, the good beer and the nice mood over the discussio
   <entry>
     <id>http://lukas.fryc.eu/blog/2012/02/wrap-up-arquillian-hackfest-developer.html</id>
     <title>Wrap-up: Arquillian Hackfest @ Developer Conference 2012 Brno</title>
-    <updated>2013-01-15T23:53:08+01:00</updated>
+    <updated>2013-01-24T08:58:46+01:00</updated>
     <published>2012-02-24T00:00:00Z</published>
     <link href='http://lukas.fryc.eu/blog/2012/02/wrap-up-arquillian-hackfest-developer.html' rel='alternate' type='text/html' />
     <category term='hackfest'></category>
@@ -816,7 +886,7 @@ After the conference closing, the good beer and the nice mood over the discussio
   <entry>
     <id>http://lukas.fryc.eu/blog/2012/02/re-routing-jsf-resource-requests-with.html</id>
     <title>Re-routing JSF resource requests with RichFaces Resource Mapping</title>
-    <updated>2013-01-15T23:53:08+01:00</updated>
+    <updated>2013-01-24T08:58:46+01:00</updated>
     <published>2012-02-13T00:00:00Z</published>
     <link href='http://lukas.fryc.eu/blog/2012/02/re-routing-jsf-resource-requests-with.html' rel='alternate' type='text/html' />
     <category term='richfaces'></category>
@@ -875,7 +945,7 @@ and resource dependencies (green)&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
   <entry>
     <id>http://lukas.fryc.eu/blog/2012/02/optimizing-resource-loading-with.html</id>
     <title>Optimizing Resource Loading with RichFaces 4.2</title>
-    <updated>2013-01-15T23:53:08+01:00</updated>
+    <updated>2013-01-24T08:58:46+01:00</updated>
     <published>2012-02-09T00:00:00Z</published>
     <link href='http://lukas.fryc.eu/blog/2012/02/optimizing-resource-loading-with.html' rel='alternate' type='text/html' />
     <category term='richfaces'></category>
@@ -938,7 +1008,7 @@ Now, deploy and open your application. When you will open page source, you can s
   <entry>
     <id>http://lukas.fryc.eu/blog/2012/02/configuring-richfaces-push-with-42.html</id>
     <title>4 simple steps for RichFaces Push with 4.2</title>
-    <updated>2013-01-15T23:53:08+01:00</updated>
+    <updated>2013-01-24T08:58:46+01:00</updated>
     <published>2012-02-08T00:00:00Z</published>
     <link href='http://lukas.fryc.eu/blog/2012/02/configuring-richfaces-push-with-42.html' rel='alternate' type='text/html' />
     <category term='richfaces'></category>
@@ -1004,11 +1074,11 @@ But it’s not simple &lt;span class=&quot;caps&quot;&gt;AJAX&lt;/span&gt;!&lt;/
   <entry>
     <id>http://lukas.fryc.eu/blog/2011/09/improvements-of-richfaces-editor-in.html</id>
     <title>Improvements of RichFaces Editor in Milestone2</title>
-    <updated>2013-01-15T23:53:08+01:00</updated>
+    <updated>2013-01-24T08:58:46+01:00</updated>
     <published>2011-09-20T00:00:00Z</published>
     <link href='http://lukas.fryc.eu/blog/2011/09/improvements-of-richfaces-editor-in.html' rel='alternate' type='text/html' />
     <category term='richfaces'></category>
-    <category term='editor'></category>
+    <category term='richfaces-component'></category>
     <summary>
       I have blogged about RichFaces Editor component recently which has been available since RichFaces 4.1.0.Milestone1.
 In scope of Milestone2, Editor has been improved with several pretty new and cool features:@lang &#8211; support for localization@config &#8211; fine-grained configuration@ondirty &#8211; event handler for live changes in editor&#8217;s content@skin &#8211; switches between CKEditor skinscreated new skin &#8216;richfaces&#8217;resource optimization (editor does not load any unnecessary resources)
@@ -1038,7 +1108,7 @@ You can still switch to other skins available in default distribution of CKEdito
   <entry>
     <id>http://lukas.fryc.eu/blog/2011/09/1-day-conference-in-vienna-slides-and.html</id>
     <title>1-day conference in Vienna - Slides and Wrap up</title>
-    <updated>2013-01-15T23:53:08+01:00</updated>
+    <updated>2013-01-24T08:58:46+01:00</updated>
     <published>2011-09-20T00:00:00Z</published>
     <link href='http://lukas.fryc.eu/blog/2011/09/1-day-conference-in-vienna-slides-and.html' rel='alternate' type='text/html' />
     <category term='wrap-up'></category>
@@ -1054,7 +1124,7 @@ You can still switch to other skins available in default distribution of CKEdito
   <entry>
     <id>http://lukas.fryc.eu/blog/2011/08/talking-on-richfacesmobiles-and-on-jsf.html</id>
     <title>Talking on RichFaces@mobiles and on JSF testing in Vienna</title>
-    <updated>2013-01-15T23:53:08+01:00</updated>
+    <updated>2013-01-24T08:58:46+01:00</updated>
     <published>2011-08-31T00:00:00Z</published>
     <link href='http://lukas.fryc.eu/blog/2011/08/talking-on-richfacesmobiles-and-on-jsf.html' rel='alternate' type='text/html' />
     <category term='event'></category>
@@ -1076,7 +1146,7 @@ Looking forward to meet you there!...
   <entry>
     <id>http://lukas.fryc.eu/blog/2011/08/lot-of-improvements-has-been-done-in-4.html</id>
     <title>Push Improvements in RichFaces 4.1</title>
-    <updated>2013-01-15T23:53:08+01:00</updated>
+    <updated>2013-01-24T08:58:46+01:00</updated>
     <published>2011-08-18T00:00:00Z</published>
     <link href='http://lukas.fryc.eu/blog/2011/08/lot-of-improvements-has-been-done-in-4.html' rel='alternate' type='text/html' />
     <category term='richfaces'></category>
@@ -1108,11 +1178,11 @@ Looking forward to meet you there!...
   <entry>
     <id>http://lukas.fryc.eu/blog/2011/08/editor-for-richfaces-41.html</id>
     <title>Editor for RichFaces 4.1</title>
-    <updated>2013-01-15T23:53:08+01:00</updated>
+    <updated>2013-01-24T08:58:46+01:00</updated>
     <published>2011-08-15T00:00:00Z</published>
     <link href='http://lukas.fryc.eu/blog/2011/08/editor-for-richfaces-41.html' rel='alternate' type='text/html' />
     <category term='richfaces'></category>
-    <category term='editor'></category>
+    <category term='richfaces-component'></category>
     <summary>
       You have been requesting and we now answer: RichFaces gets pretty new Editor component, which was lacking from 4.0.0.Final release.
 This component can be found in upcoming 4.1.0.Milestone1 release and is mostly feature complete with exception of skinning which will fit to rest of component suite &#8211; this functionality is targeted for Milestone 2.
@@ -1139,7 +1209,7 @@ It also integrates nicely with rest of JSF 2, thus you can bind e.g. behavior fo
   <entry>
     <id>http://lukas.fryc.eu/blog/2011/07/richfaces-heading-to-jboss-as7-era.html</id>
     <title>RichFaces Heading to JBoss AS7 Era</title>
-    <updated>2013-01-15T23:53:08+01:00</updated>
+    <updated>2013-01-24T08:58:46+01:00</updated>
     <published>2011-07-19T00:00:00Z</published>
     <link href='http://lukas.fryc.eu/blog/2011/07/richfaces-heading-to-jboss-as7-era.html' rel='alternate' type='text/html' />
     <category term='richfaces'></category>
