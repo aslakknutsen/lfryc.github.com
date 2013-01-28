@@ -2,13 +2,40 @@
 <feed xml:lang='en-US' xmlns='http://www.w3.org/2005/Atom'>
   <id>http://lukas.fryc.eu/</id>
   <title>Lukas Fryc</title>
-  <updated>2013-01-24T08:58:46+01:00</updated>
+  <updated>2013-01-28T13:41:28+01:00</updated>
   <link href='http://lukas.fryc.eu/feed.atom' rel='self' type='application/atom+xml' />
   <link href='http://lukas.fryc.eu/' rel='alternate' type='text/html' />
   <entry>
+    <id>http://lukas.fryc.eu/blog/2013/01/richfaces-placeholder-in-richfaces-4-3.html</id>
+    <title>New in RichFaces 4.3: Placeholder</title>
+    <updated>2013-01-28T13:41:28+01:00</updated>
+    <published>2013-01-28T00:00:00Z</published>
+    <link href='http://lukas.fryc.eu/blog/2013/01/richfaces-placeholder-in-richfaces-4-3.html' rel='alternate' type='text/html' />
+    <category term='richfaces'></category>
+    <category term='richfaces-component'></category>
+    <summary>
+      In RichFaces 4.3 we build upon a great work from Bernard Labno who prototyped the &lt;rich:placeholder /&gt; component and shared it in the RichFaces Sandbox.
+This component gives you an ability similar to the HTML5&#8217;s placeholder &#8211; it pre-fills form inputs with text, which serves as a hint for users of what data is a particular input expects. Once you edit the input, the placeholder text will disappear.
+You can try it out on the HTML 5 sample bellow:
+
+So why do you need this new component?
+The HTML 5 placeholder attribute doesn&#8217;t work in older browsers, so to ensure backward compatibility, you would...
+    </summary>
+    <content type='html'>
+      &lt;p&gt;In RichFaces 4.3 we build upon a great work from &lt;a href=&quot;https://plus.google.com/112932410824491900575/posts&quot;&gt;Bernard Labno&lt;/a&gt; who prototyped the &lt;code&gt;&amp;lt;rich:placeholder /&amp;gt;&lt;/code&gt; component and shared it in the &lt;a href=&quot;https://github.com/richfaces/sandbox&quot;&gt;RichFaces Sandbox&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This component gives you an ability similar to the HTML5&amp;#8217;s placeholder &amp;#8211; it pre-fills form inputs with text, which serves as a hint for users of what data is a particular input expects. Once you edit the input, the placeholder text will disappear.&lt;/p&gt;
+&lt;p&gt;You can try it out on the &lt;span class=&quot;caps&quot;&gt;HTML&lt;/span&gt; 5 sample bellow:&lt;/p&gt;
+&lt;input type=&quot;text&quot; placeholder=&quot;Placeholder text&quot; /&gt;
+&lt;h5&gt;So why do you need this new component?&lt;/h5&gt;
+&lt;p&gt;The &lt;span class=&quot;caps&quot;&gt;HTML&lt;/span&gt; 5 placeholder attribute doesn&amp;#8217;t work in older browsers, so to ensure backward compatibility, you would need to use a JavaScript plugin like the one we have used: &lt;code&gt;$.watermark&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;With RichFaces, you can leverage that as simply as:&lt;/p&gt;
+&lt;pre class=&quot;prettify&quot;&gt;&lt;code class=&quot;prettify&quot;&gt;&amp;lt;h:inputText value=&quot;...&quot;&amp;gt;&amp;#x000A;    &amp;lt;rich:placeholder value=&quot;Type text here...&quot; /&amp;gt;&amp;#x000A;    &amp;lt;/h:inputText&amp;gt;&lt;/code&gt;&amp;#x000A;&amp;#x000A;&lt;code class=&quot;prettify&quot;&gt;    h5. Example&lt;/code&gt;&amp;#x000A;&amp;#x000A;&lt;code class=&quot;prettify&quot;&gt;    &amp;lt;a href=&quot;http://showcase.richfaces.org/richfaces/component-sample.jsf?demo=placeholder&amp;amp;skin=blueSky&quot;&amp;gt;&amp;lt;img src=&quot;../../../images/blog/2013-01-17-richfaces-placeholder-in-richfaces-4-3/placeholder.png&quot; /&amp;gt;&amp;lt;/a&amp;gt;&lt;/code&gt;&amp;#x000A;&amp;#x000A;&lt;code class=&quot;prettify&quot;&gt;    h3. Additional features&lt;/code&gt;&amp;#x000A;&amp;#x000A;&lt;code class=&quot;prettify&quot;&gt;    h4. Placeholder styling&lt;/code&gt;&amp;#x000A;&amp;#x000A;&lt;code class=&quot;prettify&quot;&gt;    You can style the placeholder text by using the CSS&lt;/code&gt;&amp;#x000A;&amp;#x000A;&lt;code class=&quot;prettify&quot;&gt;    bc(prettify).. .rf-plhdr {&amp;#x000A;         color: #eee&amp;#x000A;    }&lt;/code&gt;&amp;#x000A;&amp;#x000A;&lt;code class=&quot;prettify&quot;&gt;    p. or for each component specifically with @styleClass@:&lt;/code&gt;&amp;#x000A;&amp;#x000A;&lt;code class=&quot;prettify&quot;&gt;    bc(prettify).. &amp;lt;rich:placeholder styleClass=&quot;my-special-placeholder&quot; /&amp;gt;&lt;/code&gt;&amp;#x000A;&amp;#x000A;&lt;code class=&quot;prettify&quot;&gt;    h4. Apply placeholder to multiple components&lt;/code&gt;&amp;#x000A;&amp;#x000A;&lt;code class=&quot;prettify&quot;&gt;    In order to apply placeholder to multiple components, you need to use @@selector@ attribute:&lt;/code&gt;&amp;#x000A;&amp;#x000A;&lt;code class=&quot;prettify&quot;&gt;    bc(prettify).. &amp;lt;h:inputText styleClass =&quot;my-placeholder&quot; /&amp;gt;&amp;#x000A;    &amp;lt;h:inputText styleClass =&quot;my-placeholder&quot; /&amp;gt;&amp;#x000A;    &amp;lt;rich:placeholder selector=&quot;.my-placeholder&quot; text=&quot;Fill in...&quot; /&amp;gt;&lt;/code&gt;&amp;#x000A;&amp;#x000A;&lt;code class=&quot;prettify&quot;&gt;    h4. Support for a wide-range of components&lt;/code&gt;&amp;#x000A;&amp;#x000A;&lt;code class=&quot;prettify&quot;&gt;    We also make sure that @&amp;lt;rich:placeholder /&amp;gt;@ works with all RichFaces input components, so you don't need to cope with incompatibilities.&lt;/code&gt;&amp;#x000A;&amp;#x000A;&amp;#x000A;&lt;code class=&quot;prettify&quot;&gt;    h4. Give it a try&lt;/code&gt;&amp;#x000A;&amp;#x000A;&lt;code class=&quot;prettify&quot;&gt;    You can try this component in a &quot;RichFaces Showcase sample&quot;:http://showcase.richfaces.org/richfaces/component-sample.jsf?demo=placeholder&amp;amp;skin=blueSky.&lt;/code&gt;&amp;#x000A;&amp;#x000A;&lt;code class=&quot;prettify&quot;&gt;    You can also read more about it in the RichFaces &quot;Component Reference&quot;:http://docs.jboss.org/richfaces/4.3.X/4.3.0.CR1/Component_Reference/en-US/html/chap-Component_Reference-Functionality_extension.html#sect-Component_Reference-Functionality_extension-richplaceholder and &quot;VDL documentation&quot;:http://docs.jboss.org/richfaces/4.3.X/4.3.0.CR1/vdldoc/rich/placeholder.html.&amp;#x000A;&lt;/code&gt;&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
     <id>http://lukas.fryc.eu/blog/2013/01/richfaces-focus-in-richfaces-4-3.html</id>
     <title>New in RichFaces 4.3: Focus</title>
-    <updated>2013-01-24T08:58:46+01:00</updated>
+    <updated>2013-01-24T08:59:34+01:00</updated>
     <published>2013-01-24T00:00:00Z</published>
     <link href='http://lukas.fryc.eu/blog/2013/01/richfaces-focus-in-richfaces-4-3.html' rel='alternate' type='text/html' />
     <category term='richfaces'></category>
@@ -78,7 +105,7 @@
   <entry>
     <id>http://lukas.fryc.eu/blog/2013/01/arquillian-graphene-2.html</id>
     <title>Graphene 2.0.0.Alpha3 Released</title>
-    <updated>2013-01-24T08:58:46+01:00</updated>
+    <updated>2013-01-24T08:59:34+01:00</updated>
     <published>2013-01-15T00:00:00Z</published>
     <link href='http://lukas.fryc.eu/blog/2013/01/arquillian-graphene-2.html' rel='alternate' type='text/html' />
     <category term='arquillian'></category>
@@ -189,7 +216,7 @@
   <entry>
     <id>http://lukas.fryc.eu/blog/2013/01/arquillian-extension-warp-1.html</id>
     <title>Warp 1.0.0.Alpha2 Released</title>
-    <updated>2013-01-24T08:58:46+01:00</updated>
+    <updated>2013-01-24T08:59:34+01:00</updated>
     <published>2013-01-15T00:00:00Z</published>
     <link href='http://lukas.fryc.eu/blog/2013/01/arquillian-extension-warp-1.html' rel='alternate' type='text/html' />
     <category term='arquillian'></category>
@@ -341,7 +368,7 @@ This will intercept the first request coming from the client and ignore the rest
   <entry>
     <id>http://lukas.fryc.eu/blog/2012/09/arquillian-graphene-2.html</id>
     <title>Graphene 2.0.0.Alpha2 Released</title>
-    <updated>2013-01-24T08:58:46+01:00</updated>
+    <updated>2013-01-24T08:59:34+01:00</updated>
     <published>2012-09-17T00:00:00Z</published>
     <link href='http://lukas.fryc.eu/blog/2012/09/arquillian-graphene-2.html' rel='alternate' type='text/html' />
     <category term='arquillian'></category>
@@ -400,7 +427,7 @@ This will intercept the first request coming from the client and ignore the rest
   <entry>
     <id>http://lukas.fryc.eu/blog/2012/08/incremental-build-with-richfaces-cdk.html</id>
     <title>Incremental build with RichFaces CDK</title>
-    <updated>2013-01-24T08:58:46+01:00</updated>
+    <updated>2013-01-24T08:59:34+01:00</updated>
     <published>2012-08-30T00:00:00Z</published>
     <link href='http://lukas.fryc.eu/blog/2012/08/incremental-build-with-richfaces-cdk.html' rel='alternate' type='text/html' />
     <category term='richfaces'></category>
@@ -441,7 +468,7 @@ This will intercept the first request coming from the client and ignore the rest
   <entry>
     <id>http://lukas.fryc.eu/blog/2012/08/jsf-meets-skinning-awesomeness-of-less.html</id>
     <title>JSF meets Skinning Awesomeness of LESS</title>
-    <updated>2013-01-24T08:58:46+01:00</updated>
+    <updated>2013-01-24T08:59:34+01:00</updated>
     <published>2012-08-03T00:00:00Z</published>
     <link href='http://lukas.fryc.eu/blog/2012/08/jsf-meets-skinning-awesomeness-of-less.html' rel='alternate' type='text/html' />
     <category term='richfaces'></category>
@@ -482,7 +509,7 @@ That&#8217;s exactly where technologies like LESS and SASS come in. They are pro
   <entry>
     <id>http://lukas.fryc.eu/blog/2012/05/arquillian-extension-warp-1.html</id>
     <title>Warp 1.0.0.Alpha1 Released</title>
-    <updated>2013-01-24T08:58:46+01:00</updated>
+    <updated>2013-01-24T08:59:34+01:00</updated>
     <published>2012-05-27T00:00:00Z</published>
     <link href='http://lukas.fryc.eu/blog/2012/05/arquillian-extension-warp-1.html' rel='alternate' type='text/html' />
     <category term='arquillian'></category>
@@ -580,7 +607,7 @@ That&#8217;s exactly where technologies like LESS and SASS come in. They are pro
   <entry>
     <id>http://lukas.fryc.eu/blog/2012/05/in-foothills-of-alps-wrap-up-of-confess.html</id>
     <title>In the foothills of Alps - wrap-up of ConFess 2012</title>
-    <updated>2013-01-24T08:58:46+01:00</updated>
+    <updated>2013-01-24T08:59:34+01:00</updated>
     <published>2012-05-14T00:00:00Z</published>
     <link href='http://lukas.fryc.eu/blog/2012/05/in-foothills-of-alps-wrap-up-of-confess.html' rel='alternate' type='text/html' />
     <category term='event'></category>
@@ -611,7 +638,7 @@ That&#8217;s exactly where technologies like LESS and SASS come in. They are pro
   <entry>
     <id>http://lukas.fryc.eu/blog/2012/04/graphene-100final-released.html</id>
     <title>Graphene 1.0.0.Final Released</title>
-    <updated>2013-01-24T08:58:46+01:00</updated>
+    <updated>2013-01-24T08:59:34+01:00</updated>
     <published>2012-04-11T00:00:00Z</published>
     <link href='http://lukas.fryc.eu/blog/2012/04/graphene-100final-released.html' rel='alternate' type='text/html' />
     <category term='arquillian'></category>
@@ -647,7 +674,7 @@ That&#8217;s exactly where technologies like LESS and SASS come in. They are pro
   <entry>
     <id>http://lukas.fryc.eu/blog/2012/04/full-fledged-debugging-for-mobile.html</id>
     <title>Full-Fledged Debugging for Mobile Browsers</title>
-    <updated>2013-01-24T08:58:46+01:00</updated>
+    <updated>2013-01-24T08:59:34+01:00</updated>
     <published>2012-04-04T00:00:00Z</published>
     <link href='http://lukas.fryc.eu/blog/2012/04/full-fledged-debugging-for-mobile.html' rel='alternate' type='text/html' />
     <category term='debugging'></category>
@@ -682,7 +709,7 @@ WebKit Web...
   <entry>
     <id>http://lukas.fryc.eu/blog/2012/03/incredibly-fast-jsf-component.html</id>
     <title>Incredibly Fast JSF Component Development</title>
-    <updated>2013-01-24T08:58:46+01:00</updated>
+    <updated>2013-01-24T08:59:34+01:00</updated>
     <published>2012-03-29T00:00:00Z</published>
     <link href='http://lukas.fryc.eu/blog/2012/03/incredibly-fast-jsf-component.html' rel='alternate' type='text/html' />
     <category term='richfaces'></category>
@@ -728,7 +755,7 @@ WebKit Web...
   <entry>
     <id>http://lukas.fryc.eu/blog/2012/03/goodbye-ajocado-welcome-graphene.html</id>
     <title>Goodbye, Ajocado - Welcome, Graphene!</title>
-    <updated>2013-01-24T08:58:46+01:00</updated>
+    <updated>2013-01-24T08:59:34+01:00</updated>
     <published>2012-03-19T00:00:00Z</published>
     <link href='http://lukas.fryc.eu/blog/2012/03/goodbye-ajocado-welcome-graphene.html' rel='alternate' type='text/html' />
     <category term='arquillian'></category>
@@ -772,7 +799,7 @@ The project is like a&amp;nbsp;diamond&amp;nbsp;- very strong in its basis:&lt;/
   <entry>
     <id>http://lukas.fryc.eu/blog/2012/03/great-times-at-jdc-2012-egypt.html</id>
     <title>Great times at JDC 2012, Egypt</title>
-    <updated>2013-01-24T08:58:46+01:00</updated>
+    <updated>2013-01-24T08:59:34+01:00</updated>
     <published>2012-03-13T00:00:00Z</published>
     <link href='http://lukas.fryc.eu/blog/2012/03/great-times-at-jdc-2012-egypt.html' rel='alternate' type='text/html' />
     <category term='wrap-up'></category>
@@ -816,7 +843,7 @@ After the conference closing, the good beer and the nice mood over the discussio
   <entry>
     <id>http://lukas.fryc.eu/blog/2012/03/speaking-at-jdc12-in-cairo-egypt.html</id>
     <title>Speaking at JDC'12 in Cairo, Egypt</title>
-    <updated>2013-01-24T08:58:46+01:00</updated>
+    <updated>2013-01-24T08:59:34+01:00</updated>
     <published>2012-03-05T00:00:00Z</published>
     <link href='http://lukas.fryc.eu/blog/2012/03/speaking-at-jdc12-in-cairo-egypt.html' rel='alternate' type='text/html' />
     <category term='event'></category>
@@ -848,7 +875,7 @@ After the conference closing, the good beer and the nice mood over the discussio
   <entry>
     <id>http://lukas.fryc.eu/blog/2012/02/wrap-up-arquillian-hackfest-developer.html</id>
     <title>Wrap-up: Arquillian Hackfest @ Developer Conference 2012 Brno</title>
-    <updated>2013-01-24T08:58:46+01:00</updated>
+    <updated>2013-01-24T08:59:34+01:00</updated>
     <published>2012-02-24T00:00:00Z</published>
     <link href='http://lukas.fryc.eu/blog/2012/02/wrap-up-arquillian-hackfest-developer.html' rel='alternate' type='text/html' />
     <category term='hackfest'></category>
@@ -886,7 +913,7 @@ After the conference closing, the good beer and the nice mood over the discussio
   <entry>
     <id>http://lukas.fryc.eu/blog/2012/02/re-routing-jsf-resource-requests-with.html</id>
     <title>Re-routing JSF resource requests with RichFaces Resource Mapping</title>
-    <updated>2013-01-24T08:58:46+01:00</updated>
+    <updated>2013-01-24T08:59:34+01:00</updated>
     <published>2012-02-13T00:00:00Z</published>
     <link href='http://lukas.fryc.eu/blog/2012/02/re-routing-jsf-resource-requests-with.html' rel='alternate' type='text/html' />
     <category term='richfaces'></category>
@@ -945,7 +972,7 @@ and resource dependencies (green)&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
   <entry>
     <id>http://lukas.fryc.eu/blog/2012/02/optimizing-resource-loading-with.html</id>
     <title>Optimizing Resource Loading with RichFaces 4.2</title>
-    <updated>2013-01-24T08:58:46+01:00</updated>
+    <updated>2013-01-24T08:59:34+01:00</updated>
     <published>2012-02-09T00:00:00Z</published>
     <link href='http://lukas.fryc.eu/blog/2012/02/optimizing-resource-loading-with.html' rel='alternate' type='text/html' />
     <category term='richfaces'></category>
@@ -1008,7 +1035,7 @@ Now, deploy and open your application. When you will open page source, you can s
   <entry>
     <id>http://lukas.fryc.eu/blog/2012/02/configuring-richfaces-push-with-42.html</id>
     <title>4 simple steps for RichFaces Push with 4.2</title>
-    <updated>2013-01-24T08:58:46+01:00</updated>
+    <updated>2013-01-24T08:59:34+01:00</updated>
     <published>2012-02-08T00:00:00Z</published>
     <link href='http://lukas.fryc.eu/blog/2012/02/configuring-richfaces-push-with-42.html' rel='alternate' type='text/html' />
     <category term='richfaces'></category>
@@ -1074,7 +1101,7 @@ But it’s not simple &lt;span class=&quot;caps&quot;&gt;AJAX&lt;/span&gt;!&lt;/
   <entry>
     <id>http://lukas.fryc.eu/blog/2011/09/improvements-of-richfaces-editor-in.html</id>
     <title>Improvements of RichFaces Editor in Milestone2</title>
-    <updated>2013-01-24T08:58:46+01:00</updated>
+    <updated>2013-01-24T08:59:34+01:00</updated>
     <published>2011-09-20T00:00:00Z</published>
     <link href='http://lukas.fryc.eu/blog/2011/09/improvements-of-richfaces-editor-in.html' rel='alternate' type='text/html' />
     <category term='richfaces'></category>
@@ -1108,7 +1135,7 @@ You can still switch to other skins available in default distribution of CKEdito
   <entry>
     <id>http://lukas.fryc.eu/blog/2011/09/1-day-conference-in-vienna-slides-and.html</id>
     <title>1-day conference in Vienna - Slides and Wrap up</title>
-    <updated>2013-01-24T08:58:46+01:00</updated>
+    <updated>2013-01-24T08:59:34+01:00</updated>
     <published>2011-09-20T00:00:00Z</published>
     <link href='http://lukas.fryc.eu/blog/2011/09/1-day-conference-in-vienna-slides-and.html' rel='alternate' type='text/html' />
     <category term='wrap-up'></category>
@@ -1124,7 +1151,7 @@ You can still switch to other skins available in default distribution of CKEdito
   <entry>
     <id>http://lukas.fryc.eu/blog/2011/08/talking-on-richfacesmobiles-and-on-jsf.html</id>
     <title>Talking on RichFaces@mobiles and on JSF testing in Vienna</title>
-    <updated>2013-01-24T08:58:46+01:00</updated>
+    <updated>2013-01-24T08:59:34+01:00</updated>
     <published>2011-08-31T00:00:00Z</published>
     <link href='http://lukas.fryc.eu/blog/2011/08/talking-on-richfacesmobiles-and-on-jsf.html' rel='alternate' type='text/html' />
     <category term='event'></category>
@@ -1146,7 +1173,7 @@ Looking forward to meet you there!...
   <entry>
     <id>http://lukas.fryc.eu/blog/2011/08/lot-of-improvements-has-been-done-in-4.html</id>
     <title>Push Improvements in RichFaces 4.1</title>
-    <updated>2013-01-24T08:58:46+01:00</updated>
+    <updated>2013-01-24T08:59:34+01:00</updated>
     <published>2011-08-18T00:00:00Z</published>
     <link href='http://lukas.fryc.eu/blog/2011/08/lot-of-improvements-has-been-done-in-4.html' rel='alternate' type='text/html' />
     <category term='richfaces'></category>
@@ -1178,7 +1205,7 @@ Looking forward to meet you there!...
   <entry>
     <id>http://lukas.fryc.eu/blog/2011/08/editor-for-richfaces-41.html</id>
     <title>Editor for RichFaces 4.1</title>
-    <updated>2013-01-24T08:58:46+01:00</updated>
+    <updated>2013-01-24T08:59:34+01:00</updated>
     <published>2011-08-15T00:00:00Z</published>
     <link href='http://lukas.fryc.eu/blog/2011/08/editor-for-richfaces-41.html' rel='alternate' type='text/html' />
     <category term='richfaces'></category>
@@ -1209,7 +1236,7 @@ It also integrates nicely with rest of JSF 2, thus you can bind e.g. behavior fo
   <entry>
     <id>http://lukas.fryc.eu/blog/2011/07/richfaces-heading-to-jboss-as7-era.html</id>
     <title>RichFaces Heading to JBoss AS7 Era</title>
-    <updated>2013-01-24T08:58:46+01:00</updated>
+    <updated>2013-01-24T08:59:34+01:00</updated>
     <published>2011-07-19T00:00:00Z</published>
     <link href='http://lukas.fryc.eu/blog/2011/07/richfaces-heading-to-jboss-as7-era.html' rel='alternate' type='text/html' />
     <category term='richfaces'></category>
